@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Nacional de Salud - Regional Sucre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar span {
+            margin-right: 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #1a5f2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(26, 95, 42, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            color: #1a5f2a;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #1a5f2a;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a5f2a;
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: white;
+            color: #1a5f2a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: #fff;
+            padding: 40px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a5f2a;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1a5f2a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background-color: #1a5f2a;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-bottom-color: #1a5f2a;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 95, 42, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: #f8f9fa;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .info-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li strong {
+            color: #1a5f2a;
+            min-width: 100px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item .icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0d3a18;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                <span>📞 Tel: 211-2064</span>
+                <span>📧 contacto@cns.gob.bo</span>
+            </div>
+            <div>
+                <span>🏥 Atención 24 horas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">CNS</div>
+                <div class="logo-text">
+                    <h1>Caja Nacional de Salud</h1>
+                    <p>Regional Sucre - Chuquisaca</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#informacion">Información</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Tu Salud, Nuestra Prioridad</h2>
+            <p>La Caja Nacional de Salud Regional Sucre brinda atención médica integral con calidad, calidez y tecnología de vanguardia para todos los asegurados del departamento de Chuquisaca.</p>
+            <a href="#servicios" class="hero-btn">Conoce Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-content">
+            <div class="stat-item">
+                <div class="stat-number">70+</div>
+                <div class="stat-label">Años de Servicio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Especialidades Médicas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Atención de Emergencias</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Compromiso con la Salud</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="servicios" class="section">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Atención médica integral para todos los asegurados</p>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Hospital Obrero N° 6</h3>
+                <p>Hospital "Dr. Jaime Mendoza" con atención hospitalaria completa, emergencias, internación y cirugías.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Policlínico Sucre</h3>
+                <p>Atención ambulatoria con consultas de especialidad, medicina general y servicios de diagnóstico.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h3>Farmacia Institucional</h3>
+                <p>Dispensación de medicamentos con cobertura integral para todos los asegurados de la CNS.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚑</div>
+                <h3>Emergencias 24h</h3>
+                <p>Servicio de emergencias las 24 horas del día con ambulancias equipadas y personal capacitado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Laboratorio Clínico</h3>
+                <p>Análisis clínicos, estudios de imagenología y diagnóstico por laboratorio con tecnología moderna.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Maternidad y Neonatología</h3>
+                <p>Atención integral a la madre y al recién nacido con servicios de parto y cuidados neonatales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeria" class="gallery-section">
+        <div class="section">
+            <div class="section-title">
+                <h2>Galería de Imágenes</h2>
+                <p>Conoce nuestras instalaciones en Sucre</p>
+                <div class="line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/29bc64cf90ce03c79fdb50eddce00dd14cadebc0.jpg" 
+                         alt="Policlínico Sucre - CNS">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico "Sucre"</h4>
+                        <p>Ambulancia y entrada principal del policlínico</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/07b2d174e14d10cece766d9cf03563d97df0d44d.jpg" 
+                         alt="Policlínico de Especialidades CNS Sucre">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico de Especialidades</h4>
+                        <p>Fachada principal en el centro histórico de Sucre</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.noticiasfides.com/b73875ad948136ecbd1b993a8e2c2e4234aee97f.jpg" 
+                         alt="Fachada Caja Nacional de Salud">
+                    <div class="gallery-overlay">
+                        <h4>Sede Central CNS Sucre</h4>
+                        <p>Edificio principal de la Caja Nacional de Salud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info -->
+    <section id="informacion" class="section info-section">
+        <div class="section-title">
+            <h2>Información Institucional</h2>
+            <p>Datos de contacto y ubicación de nuestras sedes</p>
+            <div class="line"></div>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🏢 Sede Central Regional</h3>
+                <ul>
+                    <li><strong>Dirección:</strong> Casco Viejo, Ravelo Nro. 20, Sucre</li>
+                    <li><strong>Teléfono:</strong> 211-2064</li>
+                    <li><strong>Horario:</strong> Lunes a Viernes 08:00 - 16:30</li>
+                    <li><strong>Web:</strong> www.cns.gob.bo</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🏥 Hospital Obrero N° 6</h3>
+                <ul>
+                    <li><strong>Nombre:</strong> Dr. Jaime Mendoza</li>
+                    <li><strong>Tipo:</strong> Hospital de Segundo Nivel</li>
+                    <li><strong>Servicios:</strong> Emergencias, Internación, Cirugía</li>
+                    <li><strong>Atención:</strong> 24 horas</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>📋 Trámites Disponibles</h3>
+                <ul>
+                    <li>✅ Afiliación y actualización de datos</li>
+                    <li>✅ Bajas y altas de asegurados</li>
+                    <li>✅ Trámites de jubilación</li>
+                    <li>✅ Certificados y constancias</li>
+                    <li>✅ Reclamos y quejas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>📞 Contáctanos</h3>
+                <p>Estamos aquí para atenderte. Comunícate con nosotros para cualquier consulta o emergencia.</p>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Dirección:</strong><br>
+                        Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        211-2064 / Central Telefónica
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <strong>Sitio Web:</strong><br>
+                        www.cns.gob.bo
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>🏥 Nuestros Centros</h3>
+                <p>La CNS Regional Sucre cuenta con múltiples centros de salud para brindarte la mejor atención:</p>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Hospital Obrero N° 6 "Dr. Jaime Mendoza"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico "Sucre"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico de Especialidades</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Unidad de Medicina del Trabajo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>Caja Nacional de Salud - Regional Sucre</strong></p>
+        <p>Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca, Bolivia | Tel: 211-2064</p>
+        <p style="margin-top: 10px;">© 2026 CNS Regional Sucre - Todos los derechos reservados | www.cns.gob.bo</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Nacional de Salud - Regional Sucre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar span {
+            margin-right: 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #1a5f2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(26, 95, 42, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            color: #1a5f2a;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #1a5f2a;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a5f2a;
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: white;
+            color: #1a5f2a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: #fff;
+            padding: 40px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a5f2a;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1a5f2a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background-color: #1a5f2a;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-bottom-color: #1a5f2a;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 95, 42, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: #f8f9fa;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .info-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li strong {
+            color: #1a5f2a;
+            min-width: 100px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item .icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0d3a18;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                <span>📞 Tel: 211-2064</span>
+                <span>📧 contacto@cns.gob.bo</span>
+            </div>
+            <div>
+                <span>🏥 Atención 24 horas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">CNS</div>
+                <div class="logo-text">
+                    <h1>Caja Nacional de Salud</h1>
+                    <p>Regional Sucre - Chuquisaca</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#informacion">Información</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Tu Salud, Nuestra Prioridad</h2>
+            <p>La Caja Nacional de Salud Regional Sucre brinda atención médica integral con calidad, calidez y tecnología de vanguardia para todos los asegurados del departamento de Chuquisaca.</p>
+            <a href="#servicios" class="hero-btn">Conoce Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-content">
+            <div class="stat-item">
+                <div class="stat-number">70+</div>
+                <div class="stat-label">Años de Servicio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Especialidades Médicas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Atención de Emergencias</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Compromiso con la Salud</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="servicios" class="section">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Atención médica integral para todos los asegurados</p>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Hospital Obrero N° 6</h3>
+                <p>Hospital "Dr. Jaime Mendoza" con atención hospitalaria completa, emergencias, internación y cirugías.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Policlínico Sucre</h3>
+                <p>Atención ambulatoria con consultas de especialidad, medicina general y servicios de diagnóstico.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h3>Farmacia Institucional</h3>
+                <p>Dispensación de medicamentos con cobertura integral para todos los asegurados de la CNS.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚑</div>
+                <h3>Emergencias 24h</h3>
+                <p>Servicio de emergencias las 24 horas del día con ambulancias equipadas y personal capacitado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Laboratorio Clínico</h3>
+                <p>Análisis clínicos, estudios de imagenología y diagnóstico por laboratorio con tecnología moderna.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Maternidad y Neonatología</h3>
+                <p>Atención integral a la madre y al recién nacido con servicios de parto y cuidados neonatales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeria" class="gallery-section">
+        <div class="section">
+            <div class="section-title">
+                <h2>Galería de Imágenes</h2>
+                <p>Conoce nuestras instalaciones en Sucre</p>
+                <div class="line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/29bc64cf90ce03c79fdb50eddce00dd14cadebc0.jpg" 
+                         alt="Policlínico Sucre - CNS">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico "Sucre"</h4>
+                        <p>Ambulancia y entrada principal del policlínico</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/07b2d174e14d10cece766d9cf03563d97df0d44d.jpg" 
+                         alt="Policlínico de Especialidades CNS Sucre">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico de Especialidades</h4>
+                        <p>Fachada principal en el centro histórico de Sucre</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.noticiasfides.com/b73875ad948136ecbd1b993a8e2c2e4234aee97f.jpg" 
+                         alt="Fachada Caja Nacional de Salud">
+                    <div class="gallery-overlay">
+                        <h4>Sede Central CNS Sucre</h4>
+                        <p>Edificio principal de la Caja Nacional de Salud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info -->
+    <section id="informacion" class="section info-section">
+        <div class="section-title">
+            <h2>Información Institucional</h2>
+            <p>Datos de contacto y ubicación de nuestras sedes</p>
+            <div class="line"></div>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🏢 Sede Central Regional</h3>
+                <ul>
+                    <li><strong>Dirección:</strong> Casco Viejo, Ravelo Nro. 20, Sucre</li>
+                    <li><strong>Teléfono:</strong> 211-2064</li>
+                    <li><strong>Horario:</strong> Lunes a Viernes 08:00 - 16:30</li>
+                    <li><strong>Web:</strong> www.cns.gob.bo</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🏥 Hospital Obrero N° 6</h3>
+                <ul>
+                    <li><strong>Nombre:</strong> Dr. Jaime Mendoza</li>
+                    <li><strong>Tipo:</strong> Hospital de Segundo Nivel</li>
+                    <li><strong>Servicios:</strong> Emergencias, Internación, Cirugía</li>
+                    <li><strong>Atención:</strong> 24 horas</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>📋 Trámites Disponibles</h3>
+                <ul>
+                    <li>✅ Afiliación y actualización de datos</li>
+                    <li>✅ Bajas y altas de asegurados</li>
+                    <li>✅ Trámites de jubilación</li>
+                    <li>✅ Certificados y constancias</li>
+                    <li>✅ Reclamos y quejas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>📞 Contáctanos</h3>
+                <p>Estamos aquí para atenderte. Comunícate con nosotros para cualquier consulta o emergencia.</p>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Dirección:</strong><br>
+                        Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        211-2064 / Central Telefónica
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <strong>Sitio Web:</strong><br>
+                        www.cns.gob.bo
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>🏥 Nuestros Centros</h3>
+                <p>La CNS Regional Sucre cuenta con múltiples centros de salud para brindarte la mejor atención:</p>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Hospital Obrero N° 6 "Dr. Jaime Mendoza"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico "Sucre"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico de Especialidades</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Unidad de Medicina del Trabajo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>Caja Nacional de Salud - Regional Sucre</strong></p>
+        <p>Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca, Bolivia | Tel: 211-2064</p>
+        <p style="margin-top: 10px;">© 2026 CNS Regional Sucre - Todos los derechos reservados | www.cns.gob.bo</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Nacional de Salud - Regional Sucre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar span {
+            margin-right: 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #1a5f2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(26, 95, 42, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            color: #1a5f2a;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #1a5f2a;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a5f2a;
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: white;
+            color: #1a5f2a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: #fff;
+            padding: 40px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a5f2a;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1a5f2a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background-color: #1a5f2a;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-bottom-color: #1a5f2a;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 95, 42, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: #f8f9fa;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .info-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li strong {
+            color: #1a5f2a;
+            min-width: 100px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #1a5f2a;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item .icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0d3a18;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                <span>📞 Tel: 211-2064</span>
+                <span>📧 contacto@cns.gob.bo</span>
+            </div>
+            <div>
+                <span>🏥 Atención 24 horas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">CNS</div>
+                <div class="logo-text">
+                    <h1>Caja Nacional de Salud</h1>
+                    <p>Regional Sucre - Chuquisaca</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#informacion">Información</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Tu Salud, Nuestra Prioridad</h2>
+            <p>La Caja Nacional de Salud Regional Sucre brinda atención médica integral con calidad, calidez y tecnología de vanguardia para todos los asegurados del departamento de Chuquisaca.</p>
+            <a href="#servicios" class="hero-btn">Conoce Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-content">
+            <div class="stat-item">
+                <div class="stat-number">70+</div>
+                <div class="stat-label">Años de Servicio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Especialidades Médicas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Atención de Emergencias</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Compromiso con la Salud</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="servicios" class="section">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Atención médica integral para todos los asegurados</p>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Hospital Obrero N° 6</h3>
+                <p>Hospital "Dr. Jaime Mendoza" con atención hospitalaria completa, emergencias, internación y cirugías.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Policlínico Sucre</h3>
+                <p>Atención ambulatoria con consultas de especialidad, medicina general y servicios de diagnóstico.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h3>Farmacia Institucional</h3>
+                <p>Dispensación de medicamentos con cobertura integral para todos los asegurados de la CNS.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚑</div>
+                <h3>Emergencias 24h</h3>
+                <p>Servicio de emergencias las 24 horas del día con ambulancias equipadas y personal capacitado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Laboratorio Clínico</h3>
+                <p>Análisis clínicos, estudios de imagenología y diagnóstico por laboratorio con tecnología moderna.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Maternidad y Neonatología</h3>
+                <p>Atención integral a la madre y al recién nacido con servicios de parto y cuidados neonatales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeria" class="gallery-section">
+        <div class="section">
+            <div class="section-title">
+                <h2>Galería de Imágenes</h2>
+                <p>Conoce nuestras instalaciones en Sucre</p>
+                <div class="line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/29bc64cf90ce03c79fdb50eddce00dd14cadebc0.jpg" 
+                         alt="Policlínico Sucre - CNS">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico "Sucre"</h4>
+                        <p>Ambulancia y entrada principal del policlínico</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.correodelsur.com/07b2d174e14d10cece766d9cf03563d97df0d44d.jpg" 
+                         alt="Policlínico de Especialidades CNS Sucre">
+                    <div class="gallery-overlay">
+                        <h4>Policlínico de Especialidades</h4>
+                        <p>Fachada principal en el centro histórico de Sucre</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.noticiasfides.com/b73875ad948136ecbd1b993a8e2c2e4234aee97f.jpg" 
+                         alt="Fachada Caja Nacional de Salud">
+                    <div class="gallery-overlay">
+                        <h4>Sede Central CNS Sucre</h4>
+                        <p>Edificio principal de la Caja Nacional de Salud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info -->
+    <section id="informacion" class="section info-section">
+        <div class="section-title">
+            <h2>Información Institucional</h2>
+            <p>Datos de contacto y ubicación de nuestras sedes</p>
+            <div class="line"></div>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🏢 Sede Central Regional</h3>
+                <ul>
+                    <li><strong>Dirección:</strong> Casco Viejo, Ravelo Nro. 20, Sucre</li>
+                    <li><strong>Teléfono:</strong> 211-2064</li>
+                    <li><strong>Horario:</strong> Lunes a Viernes 08:00 - 16:30</li>
+                    <li><strong>Web:</strong> www.cns.gob.bo</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🏥 Hospital Obrero N° 6</h3>
+                <ul>
+                    <li><strong>Nombre:</strong> Dr. Jaime Mendoza</li>
+                    <li><strong>Tipo:</strong> Hospital de Segundo Nivel</li>
+                    <li><strong>Servicios:</strong> Emergencias, Internación, Cirugía</li>
+                    <li><strong>Atención:</strong> 24 horas</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>📋 Trámites Disponibles</h3>
+                <ul>
+                    <li>✅ Afiliación y actualización de datos</li>
+                    <li>✅ Bajas y altas de asegurados</li>
+                    <li>✅ Trámites de jubilación</li>
+                    <li>✅ Certificados y constancias</li>
+                    <li>✅ Reclamos y quejas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>📞 Contáctanos</h3>
+                <p>Estamos aquí para atenderte. Comunícate con nosotros para cualquier consulta o emergencia.</p>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Dirección:</strong><br>
+                        Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        211-2064 / Central Telefónica
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <strong>Sitio Web:</strong><br>
+                        www.cns.gob.bo
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>🏥 Nuestros Centros</h3>
+                <p>La CNS Regional Sucre cuenta con múltiples centros de salud para brindarte la mejor atención:</p>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Hospital Obrero N° 6 "Dr. Jaime Mendoza"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico "Sucre"</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Policlínico de Especialidades</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏥</div>
+                    <div>Unidad de Medicina del Trabajo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>Caja Nacional de Salud - Regional Sucre</strong></p>
+        <p>Casco Viejo, Ravelo Nro. 20, Sucre - Chuquisaca, Bolivia | Tel: 211-2064</p>
+        <p style="margin-top: 10px;">© 2026 CNS Regional Sucre - Todos los derechos reservados | www.cns.gob.bo</p>
+    </footer>
+
+</body>
+</html>
